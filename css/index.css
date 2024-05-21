@@ -1,0 +1,212 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.index {
+  width: 100%;
+}
+
+.index nav {
+  width: 100%;
+  height: 80px;
+  padding: 0 10vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+nav h1 {
+  color: #0bc0f1;
+}
+
+nav div a {
+  text-decoration: none;
+  margin-right: 20px;
+  color: #0bc0f1;
+}
+
+nav div span {
+  color: #0bc0f1;
+}
+
+.index .swiper {
+  width: 100%;
+  height: 86vh;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.index .swiper .l {
+  display: block;
+  width: 50px;
+  height: 100px;
+  background-color: rgba(1, 1, 1, 0.3);
+  position: absolute;
+  top: 50%;
+  font-size: 40px;
+  text-align: center;
+  line-height: 100px;
+  color: #0bc0f1;
+  cursor: pointer;
+}
+
+.index .swiper .r {
+  display: block;
+  width: 50px;
+  height: 100px;
+  background-color: rgba(1, 1, 1, 0.3);
+  position: absolute;
+  right: 0;
+  top: 35%;
+  font-size: 40px;
+  text-align: center;
+  line-height: 100px;
+  color: #0bc0f1;
+  cursor: pointer;
+}
+
+.index .swiper ul li {
+  list-style: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(1, 1, 1, 0.3);
+}
+
+.index .swiper ul {
+  width: 80px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  justify-content: space-between;
+}
+
+.index h3 {
+  text-align: center;
+  color: #0bc0f1;
+  font-size: 24px;
+  line-height: 4;
+  font-weight: 400;
+}
+
+.fjarea {
+  padding: 0 4vw;
+  width: 100%;
+}
+
+.fjarea .content {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  grid-template-rows: 360px 360px 360px;
+  grid-gap: 16px;
+}
+
+.fjarea .content .content-item {
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.fjarea .content img {
+  width: 100%;
+  height: 100%;
+}
+
+.fjarea .content .content-item .title {
+  background-color: rgba(0, 0, 0, 0.2); /* 半透明背景 */
+  backdrop-filter: blur(10px); /* 背景模糊 */
+  -webkit-backdrop-filter: blur(10px);
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #fff;
+  overflow: hidden;
+  transition: all 1s ease-in-out 0.1s;
+}
+
+.fjarea .content .content-item:hover .title {
+  height: 0;
+}
+
+.fjarea .content .content-item .zz {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0.2); /* 半透明背景 */
+  backdrop-filter: blur(10px); /* 背景模糊 */
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0px;
+  overflow: hidden;
+  transition: all 1s ease-in-out 0.1s;
+}
+
+.fjarea .content .content-item .zz h4 {
+  color: #fff;
+}
+
+.fjarea .content .content-item .zz p {
+  color: #fff;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+.fjarea .content .content-item:hover .zz {
+  height: 100%;
+  padding: 16px;
+}
+
+.index .by {
+  text-align: center;
+  color: #0bc0f1;
+  font-size: 24px;
+  line-height: 6;
+  font-weight: 400;
+}
+
+.index .by span {
+  position: relative;
+}
+
+.index .by span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -90px;
+  width: 80px;
+  height: 2px;
+  border-radius: 2px;
+  background: #0bc0f1;
+}
+
+.index .by span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -90px;
+  width: 80px;
+  height: 2px;
+  border-radius: 2px;
+  background: #0bc0f1;
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>大连旅游</title>
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body>
+    <div class="index">
+      <nav>
+        <h1>大连旅游</h1>
+        <div>
+          <span><a href="./logon.html">登录</a></span>
+          <span id="timeDisplay">12:00</span>
+        </div>
+      </nav>
+      <div class="swiper">
+        <span class="l"><</span>
+        <span class="r">></span>
+        <ul>
+          <li class="swiper-item"></li>
+          <li class="swiper-item"></li>
+          <li class="swiper-item"></li>
+          <li class="swiper-item"></li>
+        </ul>
+      </div>
+      <h3>大连十大风景区</h3>
+      <div class="fjarea">
+        <div class="content" id="content">
+          <!-- <div class="content-item">
+            <img src="../img/lv001.jpg" alt="" />
+            <div class="title">老虎滩海洋公园</div>
+            <div class="zz">
+              <h4>老虎滩海洋公园</h4>
+              <p>
+                既是海洋动物和鸟类的世界，又是海滨风光胜地。公园里还有海上观光艇、四维影院等项目
+              </p>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="by"><span>浪漫之都，时尚大连</span></div>
+    </div>
+    <script src="../js/index.js"></script>
+    <script>
+      let oBox = document.querySelector(".swiper");
+      let oL = document.querySelector(".l");
+      let oR = document.querySelector(".r");
+      let oLis = document.getElementsByTagName("li");
+      console.log(oBox, oL, oR, oLis);
+      let lunbotu = new Lunbotu(oBox, oL, oR, oLis);
+      let content = document.getElementById("content");
+      let data = [
+        {
+          title: "老虎滩海洋公园",
+          img: "../img/lv001.jpg",
+          intr: "既是海洋动物和鸟类的世界，又是海滨风光胜地。公园里还有海上观光艇、四维影院等项目",
+        },
+        {
+          title: "大连森林动物园",
+          img: "../img/lv002.jpg",
+          intr: "高品位、高水準的動物園，動物品種新、奇、特，處處體現着大自然的風情萬種。",
+        },
+        {
+          title: "大连海昌发现王国主题公园",
+          img: "../img/lv003.jpg",
+          intr: "体验惊险刺激的游戏设施",
+        },
+        {
+          title: "大连圣亚海洋世界",
+          img: "../img/lv004.jpg",
+          intr: "全景海底通道探索海底世界",
+        },
+        {
+          title: "棒棰岛",
+          img: "../img/lv005.jpg",
+          intr: "依山傍海，环境清幽，花木繁茂，有清澈的海湾浴场，是闻名中外的避暑亲海胜地。",
+        },
+        {
+          title: "星海广场",
+          img: "../img/lv006.jpg",
+          intr: "大连城市地标",
+        },
+        {
+          title: "金石滩度假区",
+          img: "../img/lv007.jpg",
+          intr: "三面环海一面依山，自然景观绚丽尽显滨海风光，沙软滩平，数不尽的奇珍异宝等待发掘。",
+        },
+        {
+          title: "东方威尼斯水城",
+          img: "../img/lv008.jpg",
+          intr: "乘坐“贡多拉”游览欧式城堡，假装在意大利威尼斯。",
+        },
+        {
+          title: "军港游园",
+          img: "../img/lv009.jpg",
+          intr: "旅顺口又称狮子口，是历代兵家必争之地。风光秀丽，拥有白玉山、老铁山等知名自然景观",
+        },
+        {
+          title: "大连贝壳博物馆",
+          img: "../img/lv0010.jpg",
+          intr: "外形形似贝壳的博物馆",
+        },
+      ];
+
+      let h = data
+        .map((item) => {
+          return `
+
+        <div class="content-item">
+            <img src="${item.img}" alt="" />
+            <div class="title">${item.title}</div>
+            <div class="zz">
+              <h4>${item.title}</h4>
+              <p>
+                ${item.intr}
+              </p>
+            </div>
+          </div>
+
+        `;
+        })
+        .join("");
+
+      console.log(h);
+      content.innerHTML = h;
+
+      function formatDateTime() {
+        // 创建Date对象表示当前时间
+        var now = new Date();
+
+        // 获取年份
+        var year = now.getFullYear();
+        // 获取月份，注意JavaScript月份从0开始，所以需要加1
+        var month = now.getMonth() + 1;
+        // 获取日期
+        var date = now.getDate();
+        // 获取星期几，0表示周日，6表示周六
+        var weekday = [
+          "星期日",
+          "星期一",
+          "星期二",
+          "星期三",
+          "星期四",
+          "星期五",
+          "星期六",
+        ][now.getDay()];
+
+        // 格式化月份和日期，保证始终为两位数
+        month = month < 10 ? "0" + month : month;
+        date = date < 10 ? "0" + date : date;
+
+        // 拼接成指定格式的字符串
+        var formattedTime = year + "年" + month + "月" + date + "日 " + weekday;
+
+        // 更新到页面元素中，这里假设有一个id为timeDisplay的元素用于显示时间
+        document.getElementById("timeDisplay").innerText = formattedTime;
+      }
+
+      // 调用函数立即显示一次
+      formatDateTime();
+
+      // 使用setInterval每秒更新一次时间
+      setInterval(formatDateTime, 1000);
+    </script>
+  </body>
+</html>
